@@ -2516,4 +2516,7 @@
     <string name="sms_security_check_limit_default">30 (Alapbeállítás)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <!-- Title for the accessibility preference to menu button to answers a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_menu_button_answers_call_title">A menu gomb fogadja a hívást</string>
 </resources>

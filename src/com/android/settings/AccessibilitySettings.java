@@ -102,6 +102,8 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             "toggle_large_text_preference";
     private static final String TOGGLE_POWER_BUTTON_ENDS_CALL_PREFERENCE =
             "toggle_power_button_ends_call_preference";
+    private static final String TOGGLE_MENU_BUTTON_ANSWERS_CALL_PREFERENCE =
+             "toggle_menu_button_answers_call_preference";
     private static final String TOGGLE_LOCK_SCREEN_ROTATION_PREFERENCE =
             "toggle_lock_screen_rotation_preference";
     private static final String TOGGLE_SPEAK_PASSWORD_PREFERENCE =
@@ -176,6 +178,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mToggleLargeTextPreference;
     private CheckBoxPreference mTogglePowerButtonEndsCallPreference;
+    private CheckBoxPreference mToggleMenuButtonAnswersCallPreference;
     private CheckBoxPreference mToggleLockScreenRotationPreference;
     private CheckBoxPreference mToggleSpeakPasswordPreference;
     private ListPreference mSelectLongPressTimeoutPreference;
@@ -236,6 +239,9 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         } else if (mTogglePowerButtonEndsCallPreference == preference) {
             handleTogglePowerButtonEndsCallPreferenceClick();
             return true;
+        } else if (mToggleMenuButtonAnswersCallPreference == preference) {
+            handleToggleMenuButtonAnswersCallPreferenceClick();
+            return true;
         } else if (mToggleLockScreenRotationPreference == preference) {
             handleLockScreenRotationPreferenceClick();
             return true;
@@ -267,6 +273,14 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                 (mTogglePowerButtonEndsCallPreference.isChecked()
                         ? Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
                         : Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
+    }
+
+    private void handleToggleMenuButtonAnswersCallPreferenceClick() {
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.RING_MENU_BUTTON_BEHAVIOR,
+                (mToggleMenuButtonAnswersCallPreference.isChecked()
+                        ? Settings.Secure.RING_MENU_BUTTON_BEHAVIOR_ANSWER
+                        : Settings.Secure.RING_MENU_BUTTON_BEHAVIOR_DO_NOTHING));
     }
 
     private void handleLockScreenRotationPreferenceClick() {
@@ -318,6 +332,14 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         if (!KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER)
                 || !Utils.isVoiceCapable(getActivity())) {
             mSystemsCategory.removePreference(mTogglePowerButtonEndsCallPreference);
+        }
+
+        // Menu button answers calls.
+        mToggleMenuButtonAnswersCallPreference =
+            (CheckBoxPreference) findPreference(TOGGLE_MENU_BUTTON_ANSWERS_CALL_PREFERENCE);
+        if (!KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_MENU)
+                || !Utils.isVoiceCapable(getActivity())) {
+            mSystemsCategory.removePreference(mToggleMenuButtonAnswersCallPreference);
         }
 
         // Lock screen rotation.
@@ -487,6 +509,17 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             final boolean powerButtonEndsCall =
                     (incallPowerBehavior == Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP);
             mTogglePowerButtonEndsCallPreference.setChecked(powerButtonEndsCall);
+        }
+
+        // Menu button answers calls.
+        if (KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_MENU)
+                && Utils.isVoiceCapable(getActivity())) {
+            final int incallMenuBehavior = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.RING_MENU_BUTTON_BEHAVIOR,
+                    Settings.Secure.RING_MENU_BUTTON_BEHAVIOR_DEFAULT);
+            final boolean menuButtonAnswersCall =
+                (incallMenuBehavior == Settings.Secure.RING_MENU_BUTTON_BEHAVIOR_ANSWER);
+            mToggleMenuButtonAnswersCallPreference.setChecked(menuButtonAnswersCall);
         }
 
         // Auto-rotate screen
