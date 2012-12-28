@@ -43,6 +43,11 @@
                 android:persistent="false"/>
 
         <CheckBoxPreference
+                android:key="toggle_back_button_ends_call_preference"
+                android:title="@string/accessibility_back_button_ends_call_title"
+                android:persistent="false"/>
+
+        <CheckBoxPreference
                 android:key="toggle_lock_screen_rotation_preference"
                 android:title="@string/accelerometer_title"
                 android:persistent="false"/>
