@@ -2518,4 +2518,7 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <string name="partition_info_title">Partítció infó</string>
+
+    <!-- Title for the accessibility preference to back button to end a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_back_button_ends_call_title">A vissza gomb megszakítja a hívást</string>
 </resources>
