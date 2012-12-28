@@ -2521,4 +2521,6 @@
 
     <!-- Title for the accessibility preference to back button to end a call. [CHAR LIMIT=35] -->
     <string name="accessibility_back_button_ends_call_title">A vissza gomb megszakítja a hívást</string>
+    <!-- Title for the accessibility preference to menu button to answers a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_menu_button_answers_call_title">A menu gomb fogadja a hívást</string>
 </resources>
