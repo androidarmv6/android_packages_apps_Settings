@@ -5088,4 +5088,7 @@
     <string name="partition_info_sdcard">/sdcard (FAT)</string>
     <string name="partition_info_sdext">/sd-ext (EXT)</string>
     <string name="partition_info_used_of">/</string>
+
+    <!-- Title for the accessibility preference to back button to end a call. [CHAR LIMIT=35] -->
+    <string name="accessibility_back_button_ends_call_title">Back button ends call</string>
 </resources>
