@@ -2516,4 +2516,12 @@
     <string name="sms_security_check_limit_default">30 (Alapbeállítás)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <!-- Screenshot Menu Settings -->
+    <string name="screenshot_menu_title">Képernyőkép</string>
+    <string name="armv6_screenshot_title">Képernyőkép</string>
+    <string name="armv6_screenshot_sound_title">Hang</string>
+    <string name="armv6_screenshot_sound_summary">Ha elkészült a kép, hang lejátszása</string>
+    <string name="armv6_screenshot_delay_title">Várakozás</string>
+    <string name="armv6_screenshot_delay_summary">Ennyit vár, mielőtt elkészíti a képet</string>
 </resources>

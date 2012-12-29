@@ -5080,4 +5080,12 @@
     <string name="sms_security_check_limit_default">30 (Default)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <!-- Screenshot Menu Settings -->
+    <string name="screenshot_menu_title">Screenshot menu</string>
+    <string name="armv6_screenshot_title">Screenshot</string>
+    <string name="armv6_screenshot_sound_title">Screenshot sound</string>
+    <string name="armv6_screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+    <string name="armv6_screenshot_delay_title">Screenshot delay</string>
+    <string name="armv6_screenshot_delay_summary">Delays shot by number of seconds specified</string>
 </resources>
