@@ -2523,4 +2523,12 @@
     <string name="accessibility_back_button_ends_call_title">A vissza gomb megszakítja a hívást</string>
     <!-- Title for the accessibility preference to menu button to answers a call. [CHAR LIMIT=35] -->
     <string name="accessibility_menu_button_answers_call_title">A menu gomb fogadja a hívást</string>
+
+    <!-- Screenshot Menu Settings -->
+    <string name="screenshot_menu_title">Képernyőkép</string>
+    <string name="armv6_screenshot_title">Képernyőkép</string>
+    <string name="armv6_screenshot_sound_title">Hang</string>
+    <string name="armv6_screenshot_sound_summary">Ha elkészült a kép, hang lejátszása</string>
+    <string name="armv6_screenshot_delay_title">Várakozás</string>
+    <string name="armv6_screenshot_delay_summary">Ennyit vár, mielőtt elkészíti a képet</string>
 </resources>

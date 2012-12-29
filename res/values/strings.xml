@@ -5093,4 +5093,12 @@
     <string name="accessibility_back_button_ends_call_title">Back button ends call</string>
     <!-- Title for the accessibility preference to menu button to answers a call. [CHAR LIMIT=35] -->
     <string name="accessibility_menu_button_answers_call_title">Menu button answers call</string>
+
+    <!-- Screenshot Menu Settings -->
+    <string name="screenshot_menu_title">Screenshot menu</string>
+    <string name="armv6_screenshot_title">Screenshot</string>
+    <string name="armv6_screenshot_sound_title">Screenshot sound</string>
+    <string name="armv6_screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+    <string name="armv6_screenshot_delay_title">Screenshot delay</string>
+    <string name="armv6_screenshot_delay_summary">Delays shot by number of seconds specified</string>
 </resources>

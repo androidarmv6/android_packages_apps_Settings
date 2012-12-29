@@ -1509,6 +1509,8 @@
 
         <activity android:name=".cyanogenmod.QuickSettings" />
 
+        <activity android:name=".extras.ScreenshotMenu" />
+
         <activity android:name=".profiles.NFCProfile"
                 android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
