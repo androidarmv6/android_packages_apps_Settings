@@ -2516,4 +2516,6 @@
     <string name="sms_security_check_limit_default">30 (Alapbeállítás)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <string name="partition_info_title">Partítció infó</string>
 </resources>
