@@ -26,4 +26,7 @@
     <string name="partition_info_sdext" translatable="false">/sd-ext (EXT)</string>
     <string name="partition_info_used_of" translatable="false">/</string>
 
+    <!-- Navbar -->
+    <string name="show_navbar">Show navigation bar</string>
+    <string name="show_navbar_reboot">Requires a reboot</string>
 </resources>

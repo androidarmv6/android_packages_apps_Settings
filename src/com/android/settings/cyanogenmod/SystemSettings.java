@@ -21,6 +21,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -41,10 +42,12 @@ public class SystemSettings extends SettingsPreferenceFragment {
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String KEY_SHOW_NAVBAR = "show_navbar";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+    private CheckBoxPreference mShowNavbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,11 @@ public class SystemSettings extends SettingsPreferenceFragment {
                 updateBatteryPulseDescription();
             }
         }
+
+        // Show navbar
+        mShowNavbar = (CheckBoxPreference) findPreference(KEY_SHOW_NAVBAR);
+        mShowNavbar.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                SystemSettings.KEY_SHOW_NAVBAR, 0) == 1);
 
         // Only show the hardware keys config on a device that does not have a navbar
         // Only show the navigation bar config on phones that has a navigation bar
@@ -118,6 +126,17 @@ public class SystemSettings extends SettingsPreferenceFragment {
             mBatteryPulse.setSummary(getString(R.string.notification_light_disabled));
         }
      }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mShowNavbar) {
+            Settings.System.putInt(getContentResolver(), SystemSettings.KEY_SHOW_NAVBAR,
+                    mShowNavbar.isChecked() ? 1 : 0);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+        return true;
+    }
 
     @Override
     public void onResume() {
