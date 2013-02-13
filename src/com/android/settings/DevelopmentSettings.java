@@ -250,6 +250,11 @@ public class DevelopmentSettings extends PreferenceFragment
             disableForUser(mAdvancedReboot);
         }
 
+        if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
+            disableForUser(mEnableAdb);
+            disableForUser(mPassword);
+        }
+
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
         mAllPrefs.add(mDebugAppPref);
         mWaitForDebugger = findAndInitCheckboxPref(WAIT_FOR_DEBUGGER_KEY);
@@ -330,6 +335,13 @@ public class DevelopmentSettings extends PreferenceFragment
 
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
         mAllPrefs.add(mDevelopmentTools);
+    }
+
+    private void disableForUser(Preference pref) {
+        if (pref != null) {
+            pref.setEnabled(false);
+            mDisabledPrefs.add(pref);
+        }
     }
 
     private void disableForUser(Preference pref) {
