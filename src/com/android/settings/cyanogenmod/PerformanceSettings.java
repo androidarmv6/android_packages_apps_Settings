@@ -43,8 +43,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
     private static final String PERF_PROFILE_PREF = "pref_perf_profile";
     private static final String USE_16BPP_ALPHA_PREF = "pref_use_16bpp_alpha";
-
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
+    private static final String HWA_SETTINGS_KEY = "hwa_settings";
 
     private ListPreference mPerfProfilePref;
     private CheckBoxPreference mUse16bppAlphaPref;
@@ -100,6 +100,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
         String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
         mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
+
+        removePreferenceIfPackageNotInstalled(findPreference(HWA_SETTINGS_KEY));
 
         /* Display the warning dialog */
         alertDialog = new AlertDialog.Builder(getActivity()).create();
