@@ -3992,6 +3992,10 @@
     <!-- UI debug setting: force hardware acceleration summary [CHAR LIMIT=50] -->
     <string name="force_hw_ui_summary">Force use of GPU for 2d drawing</string>
 
+    <!-- Hardware rendering -->
+    <string name="hwa_settings_title">Hardware rendering</string>
+    <string name="hwa_settings_summary">Use hardware acceleration for selected applications</string>
+
     <!-- UI debug setting: force anti-aliasing to render apps [CHAR LIMIT=25] -->
     <string name="force_msaa">Force 4x MSAA</string>
     <!-- UI debug setting: force anti-aliasing summary [CHAR LIMIT=50] -->
