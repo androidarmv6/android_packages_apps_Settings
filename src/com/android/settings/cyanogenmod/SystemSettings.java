@@ -78,6 +78,15 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
 
         // Only show the navigation bar config on phones that has a navigation bar
         boolean removeNavbar = false;
+        IWindowManager windowManager = IWindowManager.Stub.asInterface(
+                ServiceManager.getService(Context.WINDOW_SERVICE));
+        try {
+            if (!windowManager.hasNavigationBar()) {
+                removeNavbar = true;
+            }
+        } catch (RemoteException e) {
+            // Do nothing
+        }
 
         // Determine which user is logged in
         mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
@@ -98,15 +107,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             mShowNavbar.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                     SystemSettings.KEY_SHOW_NAVBAR, 0) == 1);
 
-            IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                    ServiceManager.getService(Context.WINDOW_SERVICE));
-            try {
-                if (!windowManager.hasNavigationBar()) {
-                    removeNavbar = true;
-                }
-            } catch (RemoteException e) {
-                // Do nothing
-            }
+
 
             // Act on the above
             if (removeNavbar) {
@@ -139,7 +140,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
 
         // Pie controls
         mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
-        if (mPieControl != null && removeNavbar) {
+        if (false /* mPieControl != null && removeNavbar */) { // Don't delete PieControl
             // Remove on devices without a navbar to start with
             prefScreen.removePreference(mPieControl);
             mPieControl = null;
