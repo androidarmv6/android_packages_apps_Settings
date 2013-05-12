@@ -55,6 +55,14 @@ import com.android.settings.notificationlight.ColorPickerView;
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "LockscreenInterface";
+    private static final String KEY_ALLOW_ROTATION = "allow_rotation";
+    private static final String KEY_QUICK_UNLOCK = "quick_unlock";
+    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_HOME_SCREEN_WIDGETS = "home_screen_widgets";
+    private static final String KEY_MAXIMIZE_WIDGETS = "maximize_widgets";
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "music_controls";
+    private static final String KEY_VOLUME_WAKE = "volume_wake";
+    private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
 
     private static final int REQUEST_CODE_BG_WALLPAPER = 1024;
 
@@ -81,6 +89,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mMusicControls;
     private CheckBoxPreference mEnableWidgets;
     private CheckBoxPreference mEnableCamera;
+    private CheckBoxPreference mVolBtnMusicCtrl;
+    private CheckBoxPreference mVolumeWake;
+    private CheckBoxPreference mQuickUnlock;
 
     private File mWallpaperImage;
     private File mWallpaperTemporary;
@@ -158,6 +169,39 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK), widgetsCategory);
+        mAllowRotation = (CheckBoxPreference) prefSet.findPreference(KEY_ALLOW_ROTATION);
+        mAllowRotation.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALLOW_ROTATION, 0) == 1);
+
+        mQuickUnlock = (CheckBoxPreference) prefSet.findPreference(KEY_QUICK_UNLOCK);
+        mQuickUnlock.setChecked(Settings.System.getBoolean(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK, false));
+
+        mSeeThrough = (CheckBoxPreference) prefSet.findPreference(KEY_SEE_TRHOUGH);
+        mSeeThrough.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1);
+
+        mMaximizeWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_MAXIMIZE_WIDGETS);
+        mMaximizeWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+
+        mHomeScreenWidgets = (CheckBoxPreference) prefSet.findPreference(KEY_HOME_SCREEN_WIDGETS);
+        mHomeScreenWidgets.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HOME_SCREEN_WIDGETS, 0) == 1);
+
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
+        mVolumeWake.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+
+        mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                   Settings.System.VOLBTN_MUSIC_CONTROLS, 0) == 1);
+                   
+        if(Utils.getScreenType(mContext) == Utils.DEVICE_TABLET) {
+            prefSet.removePreference(mAllowRotation);
+            prefSet.removePreference(mMaximizeWidgets);
+        }
+        updateCustomBackgroundSummary();
     }
 
     private void updateCustomBackgroundSummary() {
@@ -197,6 +241,45 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             if (mMusicControls != null) {
                 mMusicControls.setChecked(Settings.System.getInt(cr,
                         Settings.System.LOCKSCREEN_MUSIC_CONTROLS, 1) == 1);
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mAllowRotation) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALLOW_ROTATION, mAllowRotation.isChecked()
+                    ? 1 : 0);
+        } else if (preference == mQuickUnlock) {
+            Settings.System.putBoolean(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_QUICK_UNLOCK,
+((CheckBoxPreference) preference).isChecked());
+            return true;
+        } else if (preference == mSeeThrough) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, mSeeThrough.isChecked()
+                    ? 1 : 0);
+        } else if (preference == mHomeScreenWidgets) {
+            final boolean isChecked = mHomeScreenWidgets.isChecked();
+            if(isChecked) {
+                // Show warning
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.home_screen_widgets_warning_title);
+                builder.setMessage(getResources().getString(R.string.home_screen_widgets_warning))
+                        .setPositiveButton(com.android.internal.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Settings.System.putInt(mContext.getContentResolver(),
+                                        Settings.System.HOME_SCREEN_WIDGETS,
+                                        isChecked ? 1 : 0);
+                            }
+                        })
+                        .setNegativeButton(com.android.internal.R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                mHomeScreenWidgets.setChecked(false);
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            } else {
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.HOME_SCREEN_WIDGETS, 0);
             }
         }
     }
