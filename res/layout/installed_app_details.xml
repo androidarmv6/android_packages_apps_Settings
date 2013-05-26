@@ -64,11 +64,19 @@
 
             <!-- Enable Privacy Guard for an application -->
             <CheckBox android:id="@+id/privacy_guard_switch"
-                android:layout_width="wrap_content"
+            	android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="4dip"
                 android:text="@string/privacy_guard_switch_label" />
+
+            <!-- Blacklist HALO notifications for this package -->
+            <CheckBox android:id="@+id/halo_blacklist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="4dip"
+                android:text="@string/app_halo_blacklist_label" />
 
         </LinearLayout>
 
