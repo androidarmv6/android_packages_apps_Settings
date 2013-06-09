@@ -17,6 +17,16 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Permissions management -->
+    <PreferenceScreen
+        android:key="permission_settings"
+        android:title="@string/permissions_settings_title"
+        android:summary="@string/permissions_settings_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="org.chameleonos.permissionsmanager"
+                android:targetClass="org.chameleonos.permissionsmanager.activity.PermissionManagerActivity" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="app_security"
         android:title="@string/app_security_title">
