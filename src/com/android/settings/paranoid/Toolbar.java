@@ -23,6 +23,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -32,6 +33,7 @@ import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.view.IWindowManager;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -57,12 +59,13 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_MODE = "pie_mode";
     private static final String PIE_SIZE = "pie_size";
     private static final String PIE_TRIGGER = "pie_trigger";
+    private static final String PIE_ANGLE = "pie_angle";
     private static final String PIE_GAP = "pie_gap";
     private static final String PIE_MENU = "pie_menu";
     private static final String PIE_SEARCH = "pie_search";
     private static final String PIE_CENTER = "pie_center";
     private static final String PIE_STICK = "pie_stick";
-    private static final String PIE_RESTART = "pie_restart_launcher";
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     private ListPreference mAmPmStyle;
     private ListPreference mStatusBarMaxNotif;
@@ -70,6 +73,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private ListPreference mPieSize;
     private ListPreference mPieGravity;
     private ListPreference mPieTrigger;
+    private ListPreference mPieAngle;
     private ListPreference mPieGap;
     private ListPreference mHaloState;
     private CheckBoxPreference mHaloHide;
@@ -84,7 +88,6 @@ public class Toolbar extends SettingsPreferenceFragment
     private CheckBoxPreference mPieSearch;
     private CheckBoxPreference mPieCenter;
     private CheckBoxPreference mPieStick;
-    private CheckBoxPreference mPieRestart;
     private PreferenceScreen mNavigationBarControls;
     private PreferenceCategory mNavigationCategory;
 
@@ -143,10 +146,6 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieStick.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.PIE_STICK, 1) == 1);
 
-        mPieRestart = (CheckBoxPreference) prefSet.findPreference(PIE_RESTART);
-        mPieRestart.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.EXPANDED_DESKTOP_RESTART_LAUNCHER, 1) == 1);
-
         mAmPmStyle = (ListPreference) prefSet.findPreference(KEY_AM_PM_STYLE);
         int amPmStyle = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_AM_PM_STYLE, 2);
@@ -184,7 +183,7 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieTrigger = (ListPreference) prefSet.findPreference(PIE_TRIGGER);
         try {
             float pieSize = Settings.System.getFloat(mContext.getContentResolver(),
-                    Settings.System.PIE_SIZE, 0.9f);
+                    Settings.System.PIE_SIZE, 1.0f);
             mPieSize.setValue(String.valueOf(pieSize));
   
             float pieTrigger = Settings.System.getFloat(mContext.getContentResolver(),
@@ -199,9 +198,15 @@ public class Toolbar extends SettingsPreferenceFragment
 
         mPieGap = (ListPreference) prefSet.findPreference(PIE_GAP);
         int pieGap = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.PIE_GAP, 3);
+                Settings.System.PIE_GAP, 2);
         mPieGap.setValue(String.valueOf(pieGap));
         mPieGap.setOnPreferenceChangeListener(this);
+
+        mPieAngle = (ListPreference) prefSet.findPreference(PIE_ANGLE);
+        int pieAngle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PIE_ANGLE, 12);
+        mPieAngle.setValue(String.valueOf(pieAngle));
+        mPieAngle.setOnPreferenceChangeListener(this);
 
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
@@ -233,6 +238,14 @@ public class Toolbar extends SettingsPreferenceFragment
             mNavigationCategory.removePreference(mNavigationBarControls);
             prefSet.removePreference(mQuickPullDown);
         }
+
+        // Only show the hardware keys config on a device that does not have a navbar
+        final int deviceKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        if(deviceKeys==15) {
+             PreferenceScreen HARDWARE =(PreferenceScreen) prefSet.findPreference(KEY_HARDWARE_KEYS);
+             prefSet.removePreference(HARDWARE);
+        } 
     }
 
     private boolean isHaloPolicyBlack() {
@@ -291,9 +304,6 @@ public class Toolbar extends SettingsPreferenceFragment
         } else if (preference == mPieStick) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_STICK, mPieStick.isChecked() ? 1 : 0);
-        } else if (preference == mPieRestart) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.EXPANDED_DESKTOP_RESTART_LAUNCHER, mPieRestart.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -325,6 +335,11 @@ public class Toolbar extends SettingsPreferenceFragment
             int pieGravity = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.PIE_GRAVITY, pieGravity);
+            return true;
+        } else if (preference == mPieAngle) {
+            int pieAngle = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PIE_ANGLE, pieAngle);
             return true;
         } else if (preference == mPieGap) {
             int pieGap = Integer.valueOf((String) newValue);
