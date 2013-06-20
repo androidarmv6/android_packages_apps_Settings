@@ -111,5 +111,5 @@
             android:title="@string/pie_control_title" />
 
     </PreferenceCategory>
-
+	
 </PreferenceScreen>
