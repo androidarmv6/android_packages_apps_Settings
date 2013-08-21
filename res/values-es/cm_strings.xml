@@ -748,5 +748,18 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="privacy_guard_help_text">En esta pantalla podrás elegir las aplicaciones para las que activar la privacidad, tan solo con tocar sobre ellas. Las aplicaciones seleccionadas no podrán acceder a los datos personales, tales como contactos, mensajes o registros de llamadas. Una pulsación larga mostrará los detalles de la aplicación.\n\nPor defecto, las aplicaciones del sistema no están visibles. Si deseas mostrarlas o filtrar aquellas que definen permisos de acceso a los datos personales, selecciona la opción correspondiente en el menú.</string>
     <string name="privacy_guard_manager_show_system_apps">Aplicaciones del sistema</string>
     <string name="privacy_guard_manager_filter_permissions">Filtrar permisos</string>
+    
+    <!-- HALO -->
+    <string name="halo_settings_title">Notificaciones HALO</string>
+    <string name="halo_hide_title">Ocultar HALO tras la actividad</string>
+    <string name="halo_hide_summary">HALO aparecerá para tareas entrantes y se desplazará fuera de vista después de un rato</string>
+    <string name="halo_reversed_title">Revertir gestos de HALO</string>
+    <string name="halo_reversed_summary">Aplica tareas o arrastrar al gesto de la doble pulsación</string>
+    <string name="halo_state_title">Política de HALO</string>
+    <string name="halo_state_summary">Para notificiaciones en lista negra/blanca a través de la aplicación de HALO</string>
+    <string name="halo_state_black">Lista negra</string>
+    <string name="halo_state_white">Lista blanca</string>
+    <string name="app_halo_label_black">Lista negra de notificaciones HALO</string>
+    <string name="app_halo_label_white">Lista blanca de notificaciones HALO</string>
 
 </resources>
