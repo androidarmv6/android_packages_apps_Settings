@@ -1630,6 +1630,8 @@
         <activity android:name=".cyanogenmod.PowerMenu" />
 
         <activity android:name=".cyanogenmod.QuickSettings" />
+        
+        <activity android:name=".cyanogenmod.Halo" />
 
         <activity android:name=".profiles.NFCProfile"
                 android:theme="@android:style/Theme.NoDisplay">
