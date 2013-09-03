@@ -961,14 +961,25 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="color_blue_title">Blue</string>
 
     <!-- Hardware tunables - Key backlight -->
-    <string name="key_backlight_title">Backlight</string>
-    <string name="button_backlight_title">Button backlight brightness</string>
-    <string name="keyboard_backlight_title">Keyboard backlight brightness</string>
+    <string name="button_backlight_title">Backlight</string>
+    <string name="button_backlight_enabled">Illuminate buttons</string>
+    <string name="keyboard_backlight_enabled">Illuminate keyboard</string>
+    <string name="button_backlight_seekbar_title">Button brightness</string>
+    <string name="keyboard_backlight_seekbar_title">Keyboard brightness</string>
+    <string name="backlight_timeout_title">Illumination timeout</string>
+    <string name="backlight_timeout_unlimited">Don\'t turn off</string>
+    <plurals name="backlight_timeout_time">
+        <item quantity="one"><xliff:g id="seconds">%d</xliff:g> second</item>
+        <item quantity="other"><xliff:g id="seconds">%d</xliff:g> seconds</item>
+    </plurals>
+    <string name="backlight_summary_disabled">Disabled</string>
+    <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
+    <string name="backlight_summary_enabled">Enabled</string>   
 
     <!-- Hardware tunables - Gamma calibration -->
     <string name="category_gamma_title">Gamma</string>
     <string name="gamma_tuning_title_head">Gamma calibration</string>
-    <string name="gamma_tuning_summary_head">Tweak gamma values</string>
+    <string name="gamma_tuning_summary_head">Tweak gamma values</string> 
 
     <!--  Other device settings -->
     <string name="more_device_controls_title">More\u2026</string>
@@ -981,6 +992,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="title_quick_access">Show in drawer</string>
     <string name="title_quick_access_linked">Linked layout</string>
     <string name="summary_quick_access_linked">Use the same tiles and layout as the Quick Settings panel</string>
+
+    <!-- Font size sample text. This needs to be a very short string, as it is shown in
+    multiple font sizes in a limited amount of space. -->
+    <string name="font_size_sample">Sample</string>
 
     <!-- HALO -->
     <string name="app_halo_label_black">Blacklist HALO notifications</string>
