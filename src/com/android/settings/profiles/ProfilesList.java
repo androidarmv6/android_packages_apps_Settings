@@ -34,7 +34,11 @@ public class ProfilesList extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     static final String TAG = "ProfilesSettings";
     public static final String PROFILE_SERVICE = "profile";
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     private ProfileManager mProfileManager;
 
     @Override
@@ -80,7 +84,11 @@ public class ProfilesList extends SettingsPreferenceFragment implements
                 ppref.setChecked(true);
             }
 
+<<<<<<< HEAD
             plist.addPreference(ppref);
+=======
+             plist.addPreference(ppref);
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
         }
     }
 

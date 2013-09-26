@@ -128,7 +128,11 @@ public abstract class HWValueSliderPreference extends DialogPreference implement
         defaultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 mSeekBar.setProgress(mHw.getDefaultValue() - mMin);
+=======
+                 mSeekBar.setProgress(mHw.getDefaultValue() - mMin);
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
             }
         });
     }
@@ -227,6 +231,7 @@ public abstract class HWValueSliderPreference extends DialogPreference implement
 
         return (int) percent;
     }
+<<<<<<< HEAD
 
     private static class SavedState extends BaseSavedState {
         int value;
@@ -262,3 +267,6 @@ public abstract class HWValueSliderPreference extends DialogPreference implement
         };
     }
 }
+=======
+}
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c

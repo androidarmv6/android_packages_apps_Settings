@@ -63,20 +63,6 @@
     <string name="build_date">Fecha de compilación</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memoria</string>
-    <string name="anonymous_statistics_title">Estadísticas CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Ayuda a mejorar CyanogenMod mediante el envío anónimo de estadísticas</string>
-    <string name="anonymous_statistics_warning_title">Aviso</string>
-    <string name="anonymous_statistics_warning">Permitiendo la recopilación y envío de estadísticas de CyanogenMod, autorizas el envío de información de carácter no personal a los desarrolladores de CyanogenMod para hacer un seguimiento de las instalaciones que realices en los dispositivos. La información enviada incluye un identificador único que no compromete tu privacidad ni tu información personal. Esta información es enviada durante el arranque.\n\nPara ver un ejemplo de la información enviada, pulsa en \u00ABPrevisualizar datos\u00BB</string>
-    <string name="enable_reporting_title">Activar envío estadísticas</string>
-    <string name="preview_data_title">Previsualizar datos</string>
-    <string name="view_stats_title">Ver estadísticas</string>
-    <string name="anonymous_learn_more">Leer más</string>
-    <string name="anonymous_notification_desc">Activar o desactivar estadísticas de CyanogenMod</string>
-    <string name="preview_id_title">Identificador único</string>
-    <string name="preview_device_title">Dispositivo</string>
-    <string name="preview_version_title">Versión</string>
-    <string name="preview_country_title">País</string>
-    <string name="preview_carrier_title">Operadora móvil</string>
     <string name="header_category_interface">Personalización</string>
     <string name="homescreen_settings_title">Inicio</string>
     <string name="themes_settings_title">Temas</string>
@@ -701,6 +687,7 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="color_red_title">Rojo</string>
     <string name="color_green_title">Verde</string>
     <string name="color_blue_title">Azul</string>
+<<<<<<< HEAD
     <string name="button_backlight_title">Retroiluminación</string>
     <string name="button_backlight_enabled">Iluminar botones</string>
     <string name="keyboard_backlight_enabled">Iluminar teclado</string>
@@ -715,12 +702,16 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="backlight_summary_disabled">Deshabilitado</string>
     <string name="backlight_summary_enabled_with_timeout">Habilitado durante <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Habilitado</string>
+=======
+    <string name="category_gamma_title">Gamma</string>
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="gamma_tuning_title_head">Corrección gamma</string>
     <string name="gamma_tuning_summary_head">Ajustar la corrección gamma de la pantalla</string>
     <string name="more_device_controls_title">Más\u2026</string>
     <string name="more_device_settings_title">Otros ajustes del dispositivo</string>
     <string name="sensors_motors_title">Sensores y vibración</string>
     <string name="display_calibration_title">Calibración de pantalla</string>
+<<<<<<< HEAD
     <string name="category_quick_access">Cinta de ajustes rápidos</string>
     <string name="title_quick_access">Mostrar cinta</string>
     <string name="title_quick_access_linked">Disposición vinculada</string>
@@ -729,3 +720,6 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="selinux_enable_title">Seguridad mejorada de Android</string>
     <string name="selinux_enable_warning">Estás a punto de habilitar SEAndroid, un mecanismo de seguridad avanzada.\n\nEsta opción existe exclusivamente con fines de depuración, y es muy probable que tu dispositivo no esté preparado para ello y pueda llegar a colgarse o bloquearse, total o parcialmente.\n\n¿Estás seguro de que quieres continuar?</string>
 </resources>
+=======
+</resources>
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c

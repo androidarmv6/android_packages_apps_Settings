@@ -35,4 +35,8 @@
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+<<<<<<< HEAD
 </LinearLayout>
+=======
+</LinearLayout>
+>>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
