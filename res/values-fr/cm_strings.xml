@@ -63,7 +63,6 @@
     <string name="build_date">Date de compilation</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Mémoire</string>
-<<<<<<< HEAD
     <string name="anonymous_statistics_title">Statistiques CyanogenMod</string>
     <string name="anonymous_statistics_summary">Aidez CyanogenMod en participant à l\'envoi de données anonymes pour comptabiliser les installations par type d\'appareil</string>
     <string name="anonymous_statistics_warning_title">À propos</string>
@@ -80,9 +79,6 @@
     <string name="preview_carrier_title">Opérateur</string>
     <string name="header_category_interface">Personnalisation</string>
     <string name="homescreen_settings_title">Écran d\'accueil</string>
-=======
-    <string name="headset_category_title">Casque audio</string>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="themes_settings_title">Thèmes</string>
     <string name="system_settings_title">Interface</string>
     <string name="system_interface_title">Interface système</string>
@@ -654,7 +650,6 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="privacy_guard_help_text">Dans cet écran, vous pouvez sélectionner pour quelles applications la protection des données est activée. Les applications sélectionnées ne seront pas en mesure d\'accéder à vos données personnelles telles que les contacts, les messages ou le journal d\'appels. Obtenez les détails de l\'application par un appui long sur celle-ci.\n\nPar défaut, les applications du système ne sont pas affichées. Si vous voulez les afficher ou ne filtrer que les applications qui demandent une autorisation d\'accès à des données personnelles, sélectionnez les options respectives dans le menu.</string>
     <string name="privacy_guard_manager_show_system_apps">Afficher les applications système</string>
     <string name="privacy_guard_manager_filter_permissions">Filtre de permissions</string>
-<<<<<<< HEAD
     <string name="blacklist_title">Liste noire</string>
     <string name="blacklist_edit_dialog_title">Éditer les entrées de la liste noire</string>
     <string name="blacklist_prefs">Paramètres</string>
@@ -693,14 +688,11 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="keyboard_backlight_enabled">Rétroéclairage du clavier</string>
     <string name="button_backlight_seekbar_title">Luminosité du bouton</string>
     <string name="keyboard_backlight_seekbar_title">Luminosité du clavier</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="backlight_timeout_title">Temps d\'éclairage</string>
     <string name="backlight_timeout_unlimited">Ne pas éteindre</string>
     <string name="backlight_summary_disabled">Désactivé</string>
     <string name="backlight_summary_enabled_with_timeout">Activé pendant <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Activé</string>
-<<<<<<< HEAD
     <string name="gamma_tuning_title_head">Calibrage du gamma</string>
     <string name="gamma_tuning_summary_head">Personnaliser les valeurs du gamma</string>
     <string name="more_device_controls_title">Plus\u2026</string>
@@ -714,7 +706,4 @@ Des options supplémentaires sont disponibles en appuyant longtemps sur une lign
     <string name="font_size_sample">Exemple</string>
     <string name="selinux_enable_title">Sécurité renforcée d\'Android</string>
     <string name="selinux_enable_warning">Vous êtes sur le point d\'activer SEAndroid, un mécanisme de sécurité avancé, sur votre appareil.\n\nCette option existe uniquement à des fins de débogage, et il est très probable que votre appareil ne soit pas entièrement compatible, ce qui peut le bloquer ou le ralentir en partie ou dans sa totalité.\n\nVoulez-vous continuer ?</string>
-=======
-    <string name="font_size_sample">Exemple</string>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
 </resources>
