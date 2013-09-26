@@ -62,7 +62,6 @@
     <string name="build_date">Luontipäivä</string>
     <string name="cpu_info">Prosessori</string>
     <string name="mem_info">Muisti</string>
-<<<<<<< HEAD
     <string name="anonymous_statistics_title">CyanogenMod-tilastointi</string>
     <string name="anonymous_statistics_summary">Auta tekemään CyanogenModista parempi tarjoamalla anonyymejä tilastoraportteja</string>
     <string name="anonymous_statistics_warning_title">Tietoja</string>
@@ -79,8 +78,6 @@
     <string name="preview_carrier_title">Operaattori</string>
     <string name="header_category_interface">Personalisointi</string>
     <string name="homescreen_settings_title">Kotinäyttö</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="themes_settings_title">Teemat</string>
     <string name="system_settings_title">Ulkoasu</string>
     <string name="system_interface_title">Järjestelmän ulkoasu</string>
