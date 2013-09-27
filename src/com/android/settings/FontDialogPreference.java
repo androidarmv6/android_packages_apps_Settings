@@ -153,8 +153,4 @@ public class FontDialogPreference extends DialogPreference
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
