@@ -167,7 +167,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, mDefaultLedOff);
 
         mDefaultPref.setAllValues(color, timeOn, timeOff);
-<<<<<<< HEAD
 
         // Get Missed call and Voicemail values
         if (mCallPref != null) {
@@ -178,18 +177,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             int callTimeOff = Settings.System.getInt(resolver,
                     NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, mDefaultLedOff);
 
-=======
-        
-        // Get Missed call and Voicemail values
-        if (mCallPref != null) {
-            int callColor = Settings.System.getInt(resolver,
-                    NOTIFICATION_LIGHT_PULSE_CALL_COLOR, mDefaultColor);
-            int callTimeOn = Settings.System.getInt(resolver,
-                    NOTIFICATION_LIGHT_PULSE_CALL_LED_ON, mDefaultLedOn);
-            int callTimeOff = Settings.System.getInt(resolver,
-                    NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, mDefaultLedOff);
-
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
             mCallPref.setAllValues(callColor, callTimeOn, callTimeOff);
         }
 
