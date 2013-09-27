@@ -680,7 +680,6 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="color_red_title">Rosso</string>
     <string name="color_green_title">Verde</string>
     <string name="color_blue_title">Blu</string>
-<<<<<<< HEAD
     <string name="button_backlight_title">Retroilluminazione</string>
     <string name="button_backlight_enabled">Illumina pulsanti</string>
     <string name="keyboard_backlight_enabled">Illumina tastiera</string>
@@ -695,15 +694,12 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="backlight_summary_disabled">Disattivata</string>
     <string name="backlight_summary_enabled_with_timeout">Attiva per <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Attivata</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="gamma_tuning_title_head">Calibrazione gamma</string>
     <string name="gamma_tuning_summary_head">Modifica valori gamma</string>
     <string name="more_device_controls_title">Altro\u2026</string>
     <string name="more_device_settings_title">Altre opzioni del dispositivo</string>
     <string name="sensors_motors_title">Sensori &amp; Motori</string>
     <string name="display_calibration_title">Calibrazione display</string>
-<<<<<<< HEAD
     <string name="category_quick_access">Barra accesso rapido</string>
     <string name="title_quick_access">Mostra nel drawer</string>
     <string name="title_quick_access_linked">Disposizione collegata</string>
@@ -712,9 +708,3 @@ inserire punti di controllo aggiuntivi. \'Rimuovi\' cancella la riga selezionata
     <string name="selinux_enable_title">Sicurezza avanzata Android</string>
     <string name="selinux_enable_warning">Si sta per attivare SEAndroid, un meccanismo di sicurezza avanzata, sul dispositivo.\n\nQuesta opzione esiste solo per scopi di debug, probabilmente il dispositivo non è ancora completamente pronto per questo, può quindi causare blocchi.\n\nSi è sicuri di voler procedere?</string>
 </resources>
-=======
-    <string name="font_size_sample">Esempio</string>
-    <string name="selinux_enable_title">Sicurezza avanzata Android</string>
-    <string name="selinux_enable_warning">Si sta per attivare SEAndroid, un meccanismo di sicurezza avanzata, sul dispositivo.\n\nQuesta opzione esiste solo per scopi di debug, probabilmente il dispositivo non è ancora completamente pronto per questo, può quindi causare blocchi.\n\nSi è sicuri di voler procedere?</string>
-</resources>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
