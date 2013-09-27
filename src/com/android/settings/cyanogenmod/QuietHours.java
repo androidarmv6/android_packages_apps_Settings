@@ -47,11 +47,7 @@ public class QuietHours extends SettingsPreferenceFragment implements
 
         // Load the preferences
         mQuietHoursTimeRange =
-<<<<<<< HEAD
                 (TimeRangePreference) findPreference(KEY_QUIET_HOURS_TIMERANGE);
-=======
-            (TimeRangePreference) findPreference(KEY_QUIET_HOURS_TIMERANGE);
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
 
         // Set the preference state and listeners where applicable
         mQuietHoursTimeRange.setTimeRange(
