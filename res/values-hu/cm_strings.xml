@@ -691,28 +691,18 @@ Az \"Eltávolítás\" törli a kiválasztott sort.
     <string name="backlight_summary_disabled">Letiltva</string>
     <string name="backlight_summary_enabled_with_timeout">Ideje: <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Engedélyezve</string>
-<<<<<<< HEAD
-=======
-    <string name="category_gamma_title">Gamma</string>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="gamma_tuning_title_head">Gamma kalibrálás</string>
     <string name="gamma_tuning_summary_head">Gamma értékek finomhangolása</string>
     <string name="more_device_controls_title">Továbbiak\u2026</string>
     <string name="more_device_settings_title">További eszköz beállítások</string>
     <string name="sensors_motors_title">Szenzorok &amp; motorok</string>
     <string name="display_calibration_title">Kijelző kalibrálása</string>
-<<<<<<< HEAD
     <string name="category_quick_access">Gyorsbeállítások panel</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="title_quick_access">Engedélyezés</string>
     <string name="title_quick_access_linked">Azonos elrendezés</string>
     <string name="summary_quick_access_linked">A Gyorsbeállítások panelnél beállított csempék használata</string>
     <string name="font_size_sample">Példa</string>
-<<<<<<< HEAD
     <string name="selinux_enable_title">SEAndroid</string>
     <string name="selinux_enable_warning">Ön aktiválni szeretné eszközén a SEAndroid védelmi mechanizmust.\n\nEz a lehetőség csak hibakeresési okokból van jelen és valószínű, hogy az ön eszköze nincs rá teljesen felkészítve. Előfordulhat, hogy aktiválás után a rendszere hibásan fog működni.\n\nBiztos folytatja?</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="intent_sender_data_label"><xliff:g id="data">Adat:</xliff:g></string>
 </resources>
