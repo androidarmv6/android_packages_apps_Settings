@@ -84,8 +84,4 @@ public class IntervalSeekBar extends SeekBar {
     public void setMinimum(float min) {
         mMin = min;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
