@@ -203,10 +203,7 @@
     <string name="pref_ksm_title">Kernel Samepage Merging</string>
     <string name="pref_ksm_summary">KSM minskar fysiska minneskrav och förbättrar prestanda</string>
     <string name="pref_purgeable_assets_title">Tillåt rensning av tillgångar</string>
-<<<<<<< HEAD
     <string name="pref_purgeable_assets_summary">Rensning av bitmapminnestillgångar möjliggör frigörande av mer RAM vid behov (kräver omstart)</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="pref_use_16bpp_alpha_title">16bit transparens</string>
     <string name="pref_use_16bpp_alpha_summary">Bättre grafikprestanda, men lägre kvalitet och kan orsaka visuella artefakter (kräver omstart)</string>
     <string name="display_rotation_title">Rotation</string>
