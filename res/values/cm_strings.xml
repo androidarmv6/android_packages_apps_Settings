@@ -950,11 +950,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     </plurals>
     <string name="backlight_summary_disabled">Disabled</string>
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
-<<<<<<< HEAD
     <string name="backlight_summary_enabled">Enabled</string>
-=======
-    <string name="backlight_summary_enabled">Enabled</string>   
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
 
     <!-- Hardware tunables - Gamma calibration -->
     <string name="gamma_tuning_title_head">Gamma calibration</string>
@@ -980,9 +976,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="selinux_enable_title">Security Enhanced Android</string>
     <string name="selinux_enable_warning">You are about to enable SEAndroid, an advanced security mechanism, on your device.\n\nThis option exists for debugging purposes only, and it is very likely that your device isn\'t fully ready for it, which may cause parts (or all) of your hardware to block or hang.\n\nAre you sure you want to proceed?</string>
 
-<<<<<<< HEAD
-</resources>
-=======
     <!-- HALO -->
     <string name="app_halo_label_black">Blacklist HALO notifications</string>
     <string name="app_halo_label_white">Whitelist HALO notifications</string> 
@@ -1040,4 +1033,3 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="popups_summary">Controls whether you want floating windows from notification panel</string> 
 
 </resources>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
