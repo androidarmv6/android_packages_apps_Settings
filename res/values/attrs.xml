@@ -99,8 +99,4 @@
         <attr name="defaultValue" format="float" />
         <attr name="digits" format="integer" />
     </declare-styleable>
-<<<<<<< HEAD
 </resources>
-=======
-</resources>
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
