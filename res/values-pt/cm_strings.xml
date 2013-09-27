@@ -688,7 +688,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="sensors_motors_title">Sensores &amp; motores</string>
     <string name="display_calibration_title">Calibragem da tela</string>
     <string name="hardware_keys_double_tap_title">Ação de toque duplo</string>
-<<<<<<< HEAD
     <string name="allow_mock_sms">Permitir simular SMS</string>
     <string name="adaptive_backlight_title">Luz de fundo adaptável</string>
     <string name="adaptive_backlight_summary">Variar o brilho da luz de fundo da tela inteligentemente e ajudar melhorar o consumo de bateria</string>
@@ -712,8 +711,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="backlight_summary_disabled">Desativado</string>
     <string name="backlight_summary_enabled_with_timeout">Ativado por <xliff:g id="timeout" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Ativado</string>
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     <string name="font_size_sample">Amostra</string>
     <string name="selinux_enable_title">Segurança Reforçada Android</string>
     <string name="selinux_enable_warning">Você está prestes a ativar SEAndroid, um mecanismo de segurança avançado, no seu dispositivo.\n\nEsta opção existe para fins de depuração, e pode ser muito provável que seu dispositivo não esteja pronto para ele, no qual pode causar partes (ou todas) do seu dispositivo a bloquear ou travar.\n\nVocê tem certeza que deseja continuar?</string>
