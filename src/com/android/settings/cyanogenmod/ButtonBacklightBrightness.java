@@ -22,11 +22,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.Parcel;
 import android.os.Parcelable;
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
 import android.preference.DialogPreference;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -168,7 +165,6 @@ public class ButtonBacklightBrightness extends DialogPreference implements
         }
 
         updateSummary();
-<<<<<<< HEAD
     }
 
     @Override
@@ -176,42 +172,6 @@ public class ButtonBacklightBrightness extends DialogPreference implements
         final Parcelable superState = super.onSaveInstanceState();
         if (getDialog() == null || !getDialog().isShowing()) {
             return superState;
-=======
-    }
-
-    public boolean isButtonSupported() {
-        final Resources res = getContext().getResources();
-        boolean hasAnyKey = res.getInteger(
-                com.android.internal.R.integer.config_deviceHardwareKeys) != 0;
-        boolean hasBacklight = res.getInteger(
-                com.android.internal.R.integer.config_buttonBrightnessSettingDefault) > 0;
-
-        return hasAnyKey && hasBacklight;
-    }
-
-    public boolean isKeyboardSupported() {
-        return getContext().getResources().getInteger(
-                com.android.internal.R.integer.config_keyboardBrightnessSettingDefault) > 0;
-    }
-
-    private void updateSummary() {
-        if (mButtonBrightness != null) {
-            int buttonBrightness = mButtonBrightness.getBrightness(true);
-            int timeout = getTimeout();
-
-            if (buttonBrightness == 0) {
-                setSummary(R.string.backlight_summary_disabled);
-            } else if (timeout == 0) {
-                setSummary(R.string.backlight_summary_enabled);
-            } else {
-                setSummary(getContext().getString(R.string.backlight_summary_enabled_with_timeout,
-                        getTimeoutString(timeout)));
-            }
-        } else if (mKeyboardBrightness != null && mKeyboardBrightness.getBrightness(true) != 0) {
-            setSummary(R.string.backlight_summary_enabled);
-        } else {
-            setSummary(R.string.backlight_summary_disabled);
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
         }
 
         // Save the dialog state
@@ -227,7 +187,6 @@ public class ButtonBacklightBrightness extends DialogPreference implements
         return myState;
     }
 
-<<<<<<< HEAD
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
         if (state == null || !state.getClass().equals(SavedState.class)) {
@@ -469,152 +428,5 @@ public class ButtonBacklightBrightness extends DialogPreference implements
             }
             updateTimeoutEnabledState();
         }
-=======
-    private String getTimeoutString(int timeout) {
-        return getContext().getResources().getQuantityString(
-                R.plurals.backlight_timeout_time, timeout, timeout);
-    }
-
-    private int getTimeout() {
-        return Settings.System.getInt(mResolver,
-                Settings.System.BUTTON_BACKLIGHT_TIMEOUT, DEFAULT_BUTTON_TIMEOUT * 1000) / 1000;
-    }
-
-    private void applyTimeout(int timeout) {
-        Settings.System.putInt(mResolver,
-                Settings.System.BUTTON_BACKLIGHT_TIMEOUT, timeout * 1000);
-    }
-
-    private void updateBrightnessPreview() {
-        if (mWindow != null) {
-            LayoutParams params = mWindow.getAttributes();
-            if (mActiveControl != null) {
-                params.buttonBrightness = (float) mActiveControl.getBrightness(false) / 255.0f;
-            } else {
-                params.buttonBrightness = -1;
-            }
-            mWindow.setAttributes(params);
-        }
-    }
-
-    private void updateTimeoutEnabledState() {
-        int buttonBrightness = mButtonBrightness != null
-                ? mButtonBrightness.getBrightness(false) : 0;
-        int count = mTimeoutContainer.getChildCount();
-        for (int i = 0; i < count; i++) {
-            mTimeoutContainer.getChildAt(i).setEnabled(buttonBrightness != 0);
-        }
-    }
-
-    private void handleTimeoutUpdate(int timeout) {
-        if (timeout == 0) {
-            mTimeoutValue.setText(R.string.backlight_timeout_unlimited);
-        } else {
-            mTimeoutValue.setText(getTimeoutString(timeout));
-        }
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        handleTimeoutUpdate(progress);
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        // Do nothing here
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        // Do nothing here
-    }
-
-    private class BrightnessControl implements
-            SeekBar.OnSeekBarChangeListener, CheckBox.OnCheckedChangeListener {
-        private String mSetting;
-        private boolean mIsSingleValue;
-        private CheckBox mCheckBox;
-        private SeekBar mSeekBar;
-        private TextView mValue;
-
-        public BrightnessControl(String setting, boolean singleValue) {
-            mSetting = setting;
-            mIsSingleValue = singleValue;
-        }
-
-        public void init(ViewGroup container) {
-            int brightness = getBrightness(true);
-
-            if (mIsSingleValue) {
-                container.findViewById(R.id.seekbar_container).setVisibility(View.GONE);
-                mCheckBox = (CheckBox) container.findViewById(R.id.backlight_switch);
-                mCheckBox.setChecked(brightness != 0);
-                mCheckBox.setOnCheckedChangeListener(this);
-            } else {
-                container.findViewById(R.id.checkbox_container).setVisibility(View.GONE);
-                mSeekBar = (SeekBar) container.findViewById(R.id.seekbar);
-                mValue = (TextView) container.findViewById(R.id.value);
-
-                mSeekBar.setMax(255);
-                mSeekBar.setProgress(brightness);
-                mSeekBar.setOnSeekBarChangeListener(this);
-            }
-
-            handleBrightnessUpdate(brightness);
-        }
-
-        public int getBrightness(boolean persisted) {
-            if (mCheckBox != null && !persisted) {
-                return mCheckBox.isChecked() ? 255 : 0;
-            } else if (mSeekBar != null && !persisted) {
-                return mSeekBar.getProgress();
-            }
-            return Settings.System.getInt(mResolver, mSetting, 255);
-        }
-
-        public void applyBrightness() {
-            Settings.System.putInt(mResolver, mSetting, getBrightness(false));
-        }
-
-        /* Behaviors when it's a seekbar */
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            handleBrightnessUpdate(progress);
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-             mActiveControl = this;
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            // Do nothing here
-        }
-
-        /* Behaviors when it's a plain checkbox */
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            mActiveControl = this;
-            updateBrightnessPreview();
-            updateTimeoutEnabledState();
-        }
-
-        public void reset() {
-            if (mIsSingleValue) {
-                mCheckBox.setChecked(true);
-            } else {
-                mSeekBar.setProgress(255);
-            }
-        }
-
-        private void handleBrightnessUpdate(int brightness) {
-            updateBrightnessPreview();
-            if (mValue != null) {
-                mValue.setText(String.format("%d%%", (int)((brightness * 100) / 255)));
-            }
-            updateTimeoutEnabledState();
-        }
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     }
 }
