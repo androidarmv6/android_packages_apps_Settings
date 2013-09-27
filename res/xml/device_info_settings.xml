@@ -26,8 +26,6 @@
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
 
-<<<<<<< HEAD
-=======
         <!-- Partition info -->
         <PreferenceScreen android:key="partition_info"
                 android:title="@string/partition_info_title"
@@ -37,7 +35,6 @@
                     android:targetClass="com.android.settings.extras.PartitionInfo" />
         </PreferenceScreen>
 
->>>>>>> 0d36253c3d89069188b28ac0920fe1ce61e24ee9
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
