@@ -69,25 +69,14 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
     private ProfileEnabler mProfileEnabler;
 
     private Switch mActionBarSwitch;
-<<<<<<< HEAD
-=======
-    
-    private ViewPager mViewPager;
-    private TextView mEmptyText;
-    private ProfilesPagerAdapter mAdapter;
-    private boolean mEnabled;
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
 
     private ViewPager mViewPager;
     private TextView mEmptyText;
     private ProfilesPagerAdapter mAdapter;
     private boolean mEnabled;
 
-<<<<<<< HEAD
     ViewGroup mContainer;
 
-=======
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
     static Bundle mSavedState;
 
     public ProfilesSettings() {
@@ -227,7 +216,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         View content = inflater.inflate(R.layout.profile_name_dialog, null);
         final TextView prompt = (TextView) content.findViewById(R.id.prompt);
         final EditText entry = (EditText) content.findViewById(R.id.name);
-<<<<<<< HEAD
 
         prompt.setText(R.string.profile_profile_name_prompt);
 
@@ -235,15 +223,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         builder.setTitle(R.string.menu_new_profile);
         builder.setView(content);
 
-=======
-
-        prompt.setText(R.string.profile_profile_name_prompt);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.menu_new_profile);
-        builder.setView(content);
-
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -322,21 +301,12 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
         mViewPager.setVisibility(mEnabled ? View.VISIBLE : View.GONE);
         mEmptyText.setVisibility(mEnabled ? View.GONE : View.VISIBLE);
     }
-<<<<<<< HEAD
 
     class ProfilesPagerAdapter extends FragmentStatePagerAdapter {
         Fragment[] frags = { new ProfilesList(), new AppGroupList() };
         String[] titles = { getString(R.string.profile_profiles_manage),
                             getString(R.string.profile_appgroups_manage) };
 
-=======
-
-    class ProfilesPagerAdapter extends FragmentStatePagerAdapter {
-        Fragment[] frags = { new ProfilesList(), new AppGroupList() };
-        String[] titles = { getString(R.string.profile_profiles_manage),
-                            getString(R.string.profile_appgroups_manage) };
-
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
         ProfilesPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -346,11 +316,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
             return frags[position];
         }
 
-<<<<<<< HEAD
         @Override
-=======
-         @Override
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
         public int getCount() {
             return frags.length;
         }
@@ -360,11 +326,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment {
             return titles[position];
         }
 
-<<<<<<< HEAD
         public void refreshProfiles() {
-=======
-         public void refreshProfiles() {
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
             ((ProfilesList) frags[0]).refreshList();
         }
 
