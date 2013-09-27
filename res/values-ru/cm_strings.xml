@@ -936,11 +936,6 @@
     <string name="font_size_sample">Пример текста</string>
 
     <!-- SELinux warning -->
-<<<<<<< HEAD
     <string name="selinux_enable_title">Режим усиленной безопасности</string>
     <string name="selinux_enable_warning">Вы собираетесь включить SELinux — усовершенствованный механизм безопасности.\n\nЭта возможность предназначена для отладки и может привести к нестабильной работе, если не поддерживается вашим устройством.\n\nВы уверены, что хотите продолжить?</string>
-=======
-    <string name="selinux_enable_title">Security Enhanced Android</string>
-    <string name="selinux_enable_warning">Вы собираетесь включить SELinux — усовершенствованный механизм безопасности.\n\nЭта возможность предназначена только для отладки и может привести к нестабильной работе, если не поддерживается вашим устройством.\n\nВы уверены, что хотите продолжить?</string>
->>>>>>> 92e5073a0ed5d933c022f9d521a11e7245911359
 </resources>
