@@ -90,8 +90,4 @@ public class BacklightTimeoutSeekBar extends SeekBar {
         }
         return getMax();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 100d43625c6679623e4e86a29665ad6a0c73a44c
