@@ -18,14 +18,19 @@ package com.android.settings.cyanogenmod;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Performance Settings
@@ -34,11 +39,10 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
     private static final String TAG = "PerformanceSettings";
 
     private static final String USE_16BPP_ALPHA_PREF = "pref_use_16bpp_alpha";
-
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
+    private static final String HWA_SETTINGS_KEY = "hwa_settings";
 
     private CheckBoxPreference mUse16bppAlphaPref;
-
     private AlertDialog alertDialog;
 
     @Override
@@ -52,6 +56,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
         mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
         String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
         mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
+
+        removePreferenceIfPackageNotInstalled(findPreference(HWA_SETTINGS_KEY));
 
         /* Display the warning dialog */
         alertDialog = new AlertDialog.Builder(getActivity()).create();
