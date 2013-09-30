@@ -26,10 +26,12 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 public class MoreDeviceSettings extends SettingsPreferenceFragment {
     private static final String TAG = "MoreDeviceSettings";
 
+    private static final String KEY_DEVICE_PARTS = "advanced_settings";
     private static final String KEY_SENORS_MOTORS_CATEGORY = "sensors_motors_category";
     private static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
@@ -46,7 +48,6 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
         if (!VibratorIntensity.isSupported() || vibrator == null || !vibrator.hasVibrator()) {
             removePreference(KEY_SENORS_MOTORS_CATEGORY);
         }
-
         final PreferenceGroup calibrationCategory =
                 (PreferenceGroup) findPreference(KEY_DISPLAY_CALIBRATION_CATEGORY);
 
@@ -60,5 +61,8 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
                 calibrationCategory.removePreference(findPreference(KEY_DISPLAY_GAMMA));
             }
         }
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_DEVICE_PARTS);
     }
 }
