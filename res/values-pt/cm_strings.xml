@@ -44,22 +44,6 @@
     <string name="build_date">Data de compilação</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memória</string>
-    <string name="anonymous_statistics_title">Estatísticas CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Ajude a melhorar o CyanogenMod optando por enviar estatísticas anonimas</string>
-    <string name="anonymous_statistics_warning_title">Sobre</string>
-    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anonimas do CyanogenMod permitirá que dados não-pessoais sejam enviados para os
-        desenvolvedores do CyanogenMod para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador unico,
-        que não compromete sua privacidade ou dados pessoais. Os dados são enviados durante cada inicialização.\n\nPara um exemplo de dados que são enviados, toque em Pré-visualizar Dados.</string>
-    <string name="enable_reporting_title">Habilitar relatório</string>
-    <string name="preview_data_title">Pré-visualizar dados</string>
-    <string name="view_stats_title">Ver estatísticas</string>
-    <string name="anonymous_learn_more">Saiba mais</string>
-    <string name="anonymous_notification_desc">Habilitar ou desabilitar estatísticas CyanogenMod</string>
-    <string name="preview_id_title">ID unico</string>
-    <string name="preview_device_title">Dispositivo</string>
-    <string name="preview_version_title">Versão</string>
-    <string name="preview_country_title">País</string>
-    <string name="preview_carrier_title">Operadora</string>
     <string name="themes_settings_title">Temas</string>
     <string name="system_interface_title">Interface de sistema</string>
     <string name="notification_drawer_title">Gaveta de notificação</string>
@@ -730,11 +714,4 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="font_size_sample">Amostra</string>
     <string name="selinux_enable_title">Segurança Reforçada Android</string>
     <string name="selinux_enable_warning">Você está prestes a ativar SEAndroid, um mecanismo de segurança avançado, no seu dispositivo.\n\nEsta opção existe para fins de depuração, e pode ser muito provável que seu dispositivo não esteja pronto para ele, no qual pode causar partes (ou todas) do seu dispositivo a bloquear ou travar.\n\nVocê tem certeza que deseja continuar?</string>
-    <string name="title_tile_network_adb">ADB pela rede</string>
-    <string name="lockscreen_battery_status_alwaysoff">Sempre desligado</string>
-    <string name="hardware_keys_camera_key_title">Botão da câmera</string>
-    <string name="hardware_keys_action_launch_camera">Abrir câmera</string>
-    <string name="lockscreen_buttons_sleep">Suspender</string>
-    <string name="gamma_tuning_contrast">Contraste</string>
-    <string name="gamma_tuning_brightness">Brilho</string>
 </resources>
