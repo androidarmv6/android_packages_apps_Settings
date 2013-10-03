@@ -44,22 +44,6 @@
     <string name="build_date">Data de compilação</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memória</string>
-    <string name="anonymous_statistics_title">Estatísticas CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Ajude a melhorar o CyanogenMod optando por enviar estatísticas anonimas</string>
-    <string name="anonymous_statistics_warning_title">Sobre</string>
-    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anonimas do CyanogenMod permitirá que dados não-pessoais sejam enviados para os
-        desenvolvedores do CyanogenMod para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador unico,
-        que não compromete sua privacidade ou dados pessoais. Os dados são enviados durante cada inicialização.\n\nPara um exemplo de dados que são enviados, toque em Pré-visualizar Dados.</string>
-    <string name="enable_reporting_title">Habilitar relatório</string>
-    <string name="preview_data_title">Pré-visualizar dados</string>
-    <string name="view_stats_title">Ver estatísticas</string>
-    <string name="anonymous_learn_more">Saiba mais</string>
-    <string name="anonymous_notification_desc">Habilitar ou desabilitar estatísticas CyanogenMod</string>
-    <string name="preview_id_title">ID unico</string>
-    <string name="preview_device_title">Dispositivo</string>
-    <string name="preview_version_title">Versão</string>
-    <string name="preview_country_title">País</string>
-    <string name="preview_carrier_title">Operadora</string>
     <string name="themes_settings_title">Temas</string>
     <string name="system_interface_title">Interface de sistema</string>
     <string name="notification_drawer_title">Gaveta de notificação</string>
@@ -628,7 +612,7 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="privacy_guard_reset_title">Redefinir</string>
     <string name="privacy_guard_manager_show_system_apps">Mostrar aplicativos de sistema</string>
     <string name="privacy_guard_manager_filter_permissions">Filtro de permissão</string>
-    <string name="privacy_guard_help_text">Nesta tela você pode escolher quais aplicativos a Proteção à Privacidade irá ser ativada ao apertar neles. Aplicativos selecionados não poderão acessar seus dados pessoais, como contatos, mensagens e registro de chamadas. A tela de detalhes do aplicativo irá abrir ao tocar e segurar em uma entrada.\n\nPor padrão, aplicativos de sistema não serão mostrados. Se você deseja mostrá-los ou filtrar aplicativos para mostrar somente aqueles requisitando acesso a dados pessoais através das suas permissões, selecione a opção respectiva no menu.</string>
+    <string name="privacy_guard_help_text">Nesta tela você pode escolher quais aplicativos a Proteção à Privacidade irá ser ativada ao apertar neles. Aplicativos selecionados não poderão acessar seus dados pessoais, como contatos, mensagens e registro de chamadas. A tela de detalhes do aplicativo irá abrir ao tocar e segurar em uma entrada.\n\nPor padrão, aplicativos de sistema não serão mostrados. Se você deseja mostrá-los, selecione a opção respectiva no menu.</string>
     <string name="privacy_guard_dlg_system_app_text">Ao ativar a Proteção à Privacidade para um aplicativo de sistema, o aplicativo não será capaz de acessar ou prover dados pessoais. Isto pode causar problemas em outros aplicativos.</string>
     <string name="storage_rescan_media">Nova varredura por mídia no volume de armazenamento</string>
     <string name="storage_rescan_media_complete">Varredura completada</string>
