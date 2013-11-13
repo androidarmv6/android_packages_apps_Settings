@@ -319,6 +319,11 @@
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
 
-    </PreferenceCategory>
+        <CheckBoxPreference
+            android:key="classic_webview"
+            android:title="@string/classic_webview"
+            android:summary="@string/classic_webview_summary"/>
+
+     </PreferenceCategory>
 
 </PreferenceScreen>
