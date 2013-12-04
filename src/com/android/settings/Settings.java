@@ -21,6 +21,7 @@ import com.android.settings.ChooseLockGeneric.ChooseLockGenericFragment;
 import com.android.settings.accounts.AccountSyncSettings;
 import com.android.settings.accounts.AuthenticatorHelper;
 import com.android.settings.accounts.ManageAccountsSettings;
+import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.bluetooth.BluetoothEnabler;
@@ -414,6 +415,7 @@ public class Settings extends PreferenceActivity
                 InstalledAppDetails.class.getName().equals(fragmentName) ||
                 ChooseLockGenericFragment.class.getName().equals(fragmentName) ||
                 TetherSettings.class.getName().equals(fragmentName) ||
+				BlacklistSettings.class.getName().equals(fragmentName) ||
                 ApnSettings.class.getName().equals(fragmentName) ||
                 LocationSettings.class.getName().equals(fragmentName) ||
                 ZonePicker.class.getName().equals(fragmentName)) {
@@ -892,4 +894,5 @@ public class Settings extends PreferenceActivity
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
     public static class SystemSettingsActivity extends Settings { /* empty */ }
+    public static class BlacklistSettingsActivity extends Settings { /* empty */ }
 }
