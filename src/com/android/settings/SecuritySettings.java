@@ -45,7 +45,9 @@ import android.security.KeyStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +97,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_VIBRATE_PREF = "lockscreen_vibrate";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
     private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
+	private static final String KEY_BLACKLIST = "blacklist";
 
     DevicePolicyManager mDPM;
 
@@ -127,6 +130,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private CheckBoxPreference mHomeUnlock;
     private CheckBoxPreference mQuickUnlockScreen;
     private ListPreference mSmsSecurityCheck;
+	private PreferenceScreen mBlacklist;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -398,15 +402,20 @@ public class SecuritySettings extends SettingsPreferenceFragment
             // App security settings
             addPreferencesFromResource(R.xml.security_settings_app_cyanogenmod);
             mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+            mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
+
+            // Determine options based on device telephony support
             if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
                 mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
                 mSmsSecurityCheck.setOnPreferenceChangeListener(this);
                 int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
                 updateSmsSecuritySummary(smsSecurityCheck);
             } else {
+				// No telephony, remove dependent options
                 PreferenceGroup appCategory = (PreferenceGroup)
                         root.findPreference(KEY_APP_SECURITY_CATEGORY);
                 appCategory.removePreference(mSmsSecurityCheck);
+				appCategory.removePreference(mBlacklist);
             }
          }
 
@@ -619,6 +628,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(state != KeyStore.State.UNINITIALIZED);
         }
+		
+		// Blacklist
+        updateBlacklistSummary();
+		
     }
 
     @Override
@@ -773,4 +786,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
         intent.setClassName("com.android.facelock", "com.android.facelock.AddToSetup");
         startActivity(intent);
     }
+	
+	private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
+    }	
 }
