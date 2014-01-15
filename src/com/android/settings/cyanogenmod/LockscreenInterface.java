@@ -67,7 +67,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment {
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
 
         // Remove/disable custom widgets based on device RAM and policy
-        if (ActivityManager.isLowRamDeviceStatic()) {
+        if (!ActivityManager.isHighEndGfx()) {
             // Widgets take a lot of RAM, so disable them on low-memory devices
             widgetsCategory.removePreference(findPreference(KEY_ENABLE_WIDGETS));
             mEnableKeyguardWidgets = null;
