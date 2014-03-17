@@ -36,8 +36,15 @@ public class MemoryManagement extends SettingsPreferenceFragment {
     private static final String PURGEABLE_ASSETS_PREF = "pref_purgeable_assets";
     private static final String PURGEABLE_ASSETS_PERSIST_PROP = "persist.sys.purgeable_assets";
 
+    private static final String SWAP_PREF = "pref_swap";
+    private static final String SWAP_PERSIST_PROP = "persist.sys.swap";
+    private static final String SWAP_PRIORITY_PREF = "pref_swap_priority";
+    private static final String SWAP_PRIORITY_PERSIST_PROP = "persist.sys.swap_pri";
+
     private CheckBoxPreference mPurgeableAssetsPref;
     private CheckBoxPreference mKSMPref;
+    private CheckBoxPreference mSwapPref;
+    private CheckBoxPreference mSwapPriorityPref;
 
 
     @Override
@@ -50,6 +57,8 @@ public class MemoryManagement extends SettingsPreferenceFragment {
 
         mPurgeableAssetsPref = (CheckBoxPreference) prefSet.findPreference(PURGEABLE_ASSETS_PREF);
         mKSMPref = (CheckBoxPreference) prefSet.findPreference(KSM_PREF);
+        mSwapPref = (CheckBoxPreference) prefSet.findPreference(SWAP_PREF);
+        mSwapPriorityPref = (CheckBoxPreference) prefSet.findPreference(SWAP_PRIORITY_PREF);
 
         if (Utils.fileExists(KSM_RUN_FILE)) {
             mKSMPref.setChecked("1".equals(Utils.fileReadOneLine(KSM_RUN_FILE)));
@@ -59,6 +68,13 @@ public class MemoryManagement extends SettingsPreferenceFragment {
 
         String purgeableAssets = SystemProperties.get(PURGEABLE_ASSETS_PERSIST_PROP, "0");
         mPurgeableAssetsPref.setChecked("1".equals(purgeableAssets));
+
+        String swap = SystemProperties.get(SWAP_PERSIST_PROP, "0");
+        mSwapPref.setChecked("1".equals(swap));
+
+        String swapPriority = SystemProperties.get(SWAP_PRIORITY_PERSIST_PROP, "0");
+        mSwapPriorityPref.setChecked("2".equals(swapPriority));
+        mSwapPriorityPref.setEnabled(mSwapPref.isChecked());
     }
 
     @Override
@@ -70,6 +86,17 @@ public class MemoryManagement extends SettingsPreferenceFragment {
         }
         if (preference == mKSMPref) {
             Utils.fileWriteOneLine(KSM_RUN_FILE, mKSMPref.isChecked() ? "1" : "0");
+            return true;
+        }
+        if (preference == mSwapPref) {
+            mSwapPriorityPref.setEnabled(mSwapPref.isChecked());
+            SystemProperties.set(SWAP_PERSIST_PROP,
+                    mSwapPref.isChecked() ? "1" : "0");
+            return true;
+        }
+        if (preference == mSwapPriorityPref) {
+            SystemProperties.set(SWAP_PRIORITY_PERSIST_PROP,
+                    mSwapPriorityPref.isChecked() ? "2" : "0");
             return true;
         }
         return false;
