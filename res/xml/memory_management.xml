@@ -29,4 +29,14 @@
         android:title="@string/pref_ksm_title"
         android:summary="@string/pref_ksm_summary" />
 
+    <CheckBoxPreference
+        android:key="pref_swap"
+        android:title="@string/pref_swap_title"
+        android:summary="@string/pref_swap_summary" />
+
+    <CheckBoxPreference
+        android:key="pref_swap_priority"
+        android:title="@string/pref_swap_priority_title"
+        android:summary="@string/pref_swap_priority_summary" />
+
 </PreferenceScreen>

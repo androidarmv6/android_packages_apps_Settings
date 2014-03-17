@@ -569,6 +569,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Purgeable Assets -->
     <string name="pref_purgeable_assets_title">Allow purging of assets</string>
     <string name="pref_purgeable_assets_summary">Purging of bitmap memory assets allows the freeing of more RAM when needed (requires reboot)</string>
+    <!-- Swap -->
+    <string name="pref_swap_title">SD swap</string>
+    <string name="pref_swap_summary">Use SD card swap partition as virtual memory, allowing more applications to remain open</string>
+    <!-- Swap Priority-->
+    <string name="pref_swap_priority_title">High priority SD swap</string>
+    <string name="pref_swap_priority_summary">SD card swap will be used before zRAM swap</string>
 
     <!-- Performance Settings : 16bpp Alpha -->
     <string name="pref_use_16bpp_alpha_title">16bit transparency</string>
