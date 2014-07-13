@@ -40,11 +40,14 @@ public class MemoryManagement extends SettingsPreferenceFragment {
     private static final String SWAP_PERSIST_PROP = "persist.sys.swap";
     private static final String SWAP_PRIORITY_PREF = "pref_swap_priority";
     private static final String SWAP_PRIORITY_PERSIST_PROP = "persist.sys.swap_pri";
+    private static final String DISABLE_ZRAM_PREF = "pref_disable_zram";
+    private static final String DISABLE_ZRAM_PERSIST_PROP = "persist.sys.disable_zram";
 
     private CheckBoxPreference mPurgeableAssetsPref;
     private CheckBoxPreference mKSMPref;
     private CheckBoxPreference mSwapPref;
     private CheckBoxPreference mSwapPriorityPref;
+    private CheckBoxPreference mDisableZramPref;
 
 
     @Override
@@ -59,6 +62,7 @@ public class MemoryManagement extends SettingsPreferenceFragment {
         mKSMPref = (CheckBoxPreference) prefSet.findPreference(KSM_PREF);
         mSwapPref = (CheckBoxPreference) prefSet.findPreference(SWAP_PREF);
         mSwapPriorityPref = (CheckBoxPreference) prefSet.findPreference(SWAP_PRIORITY_PREF);
+        mDisableZramPref = (CheckBoxPreference) prefSet.findPreference(DISABLE_ZRAM_PREF);
 
         if (Utils.fileExists(KSM_RUN_FILE)) {
             mKSMPref.setChecked("1".equals(Utils.fileReadOneLine(KSM_RUN_FILE)));
@@ -75,6 +79,9 @@ public class MemoryManagement extends SettingsPreferenceFragment {
         String swapPriority = SystemProperties.get(SWAP_PRIORITY_PERSIST_PROP, "0");
         mSwapPriorityPref.setChecked("2".equals(swapPriority));
         mSwapPriorityPref.setEnabled(mSwapPref.isChecked());
+
+        String disablezram = SystemProperties.get(DISABLE_ZRAM_PERSIST_PROP, "0");
+        mDisableZramPref.setChecked("1".equals(disablezram));
     }
 
     @Override
@@ -97,6 +104,12 @@ public class MemoryManagement extends SettingsPreferenceFragment {
         if (preference == mSwapPriorityPref) {
             SystemProperties.set(SWAP_PRIORITY_PERSIST_PROP,
                     mSwapPriorityPref.isChecked() ? "2" : "0");
+            return true;
+        }
+        if (preference == mDisableZramPref) {
+            mDisableZramPref.setEnabled(mDisableZramPref.isChecked());
+            SystemProperties.set(DISABLE_ZRAM_PERSIST_PROP,
+                    mDisableZramPref.isChecked() ? "1" : "0");
             return true;
         }
         return false;
