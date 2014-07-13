@@ -39,4 +39,9 @@
         android:title="@string/pref_swap_priority_title"
         android:summary="@string/pref_swap_priority_summary" />
 
+    <CheckBoxPreference
+        android:key="pref_disable_zram"
+        android:title="@string/pref_disable_zram_title"
+        android:summary="@string/pref_disable_zram_summary" />
+
 </PreferenceScreen>
