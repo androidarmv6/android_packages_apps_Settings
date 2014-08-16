@@ -130,6 +130,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
+        final boolean hasEndcallKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_ENDCALL);
         final boolean hasPowerKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER);
         final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
         final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
@@ -195,6 +196,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 powerCategory.removePreference(mPowerEndCall);
                 mPowerEndCall = null;
             }
+        } else if (hasEndcallKey) {
+            powerCategory.removePreference(mPowerEndCall);
+            mPowerEndCall = null;
         } else {
             prefScreen.removePreference(powerCategory);
         }
