@@ -49,6 +49,9 @@
          Setting to false will disable Tune Away/Priority Subscription support -->
     <bool name="config_HasTuneAway">false</bool>
 
+    <!-- Enable search. Some slow devices may want to disable this -->
+    <bool name="config_enableSearch">true</bool>
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- This used to define screen color's Hue progress bar minimum value -->

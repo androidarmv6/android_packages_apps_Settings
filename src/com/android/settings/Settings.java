@@ -243,6 +243,11 @@ public class Settings extends PreferenceActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Check for disabled config option
+        if (!getResources().getBoolean(R.bool.config_enableSearch)) {
+            return false;
+        }
+
         // We only want to inflate the search menu item in the top-level activity
         if (getClass() != Settings.class) {
             return false;
